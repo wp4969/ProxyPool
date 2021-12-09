@@ -1,4 +1,4 @@
-from ProxyPool.crawlers.base import BaseCrawler
+from proxypool.crawlers.base import BaseCrawler
 
 PROXY_TYPE = range(1, 34)
 BASE_URL = 'http://www.66ip.cn/areaindex_{stype}/1.html'

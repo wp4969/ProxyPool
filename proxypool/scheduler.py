@@ -1,10 +1,10 @@
 import time
 import multiprocessing
 from loguru import logger
-from ProxyPool.components.getter import Getter
-from ProxyPool.components.tester import Tester
-from ProxyPool.components.server import app
-from ProxyPool.setting import TESTER_ENABLED, GETTER_ENABLED, SERVER_ENABLED, TESTER_CYCLE, GETTER_CYCLE, API_HOST, \
+from proxypool.components.getter import Getter
+from proxypool.components.tester import Tester
+from proxypool.components.server import app
+from proxypool.setting import TESTER_ENABLED, GETTER_ENABLED, SERVER_ENABLED, TESTER_CYCLE, GETTER_CYCLE, API_HOST, \
     API_PORT, API_THREADED, LOGGER_ENABLED, LOGGER_FILE, LOGGER_LEVEL, LOGGER_FORMAT, LOGGER_ROTATION, LOGGER_RETENTION
 
 

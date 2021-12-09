@@ -3,9 +3,9 @@ from loguru import logger
 import aiohttp
 from aiohttp import ClientError, ClientConnectorError, ClientProxyConnectionError, ServerDisconnectedError, \
     ClientOSError, ClientHttpProxyError
-from ProxyPool.components.redisclient import RedisClient
-from ProxyPool.utils.header import Header
-from ProxyPool.setting import TEST_BATCH, TEST_ANONYMOUS, TEST_TIMEOUT, TEST_URL, TEST_VALID_STATUS, \
+from proxypool.components.redisclient import RedisClient
+from proxypool.utils.header import Header
+from proxypool.setting import TEST_BATCH, TEST_ANONYMOUS, TEST_TIMEOUT, TEST_URL, TEST_VALID_STATUS, \
     LOGGER_ENABLED, LOGGER_FILE, LOGGER_LEVEL, LOGGER_FORMAT, LOGGER_RETENTION, LOGGER_ROTATION
 
 

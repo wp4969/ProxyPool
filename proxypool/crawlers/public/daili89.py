@@ -1,4 +1,4 @@
-from ProxyPool.crawlers.base import BaseCrawler
+from proxypool.crawlers.base import BaseCrawler
 
 MAX_PAGE = 80
 BASE_URL = 'https://www.89ip.cn/index_{page}.html'

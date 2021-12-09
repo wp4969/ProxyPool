@@ -1,4 +1,4 @@
-from ProxyPool.crawlers.base import BaseCrawler
+from proxypool.crawlers.base import BaseCrawler
 
 PROXY_TYPE = ['in_tp', 'in_hp']
 BASE_URL = 'https://proxy.mimvp.com/freeopen?proxy={stype}'

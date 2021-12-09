@@ -1,7 +1,7 @@
 from loguru import logger
-from ProxyPool.crawlers import __all__ as crawlers_cls
-from ProxyPool.components.redisclient import RedisClient
-from ProxyPool.setting import PROXY_NUMBER_MAX, LOGGER_ENABLED, LOGGER_FILE, LOGGER_LEVEL, \
+from proxypool.crawlers import __all__ as crawlers_cls
+from proxypool.components.redisclient import RedisClient
+from proxypool.setting import PROXY_NUMBER_MAX, LOGGER_ENABLED, LOGGER_FILE, LOGGER_LEVEL, \
     LOGGER_FORMAT, LOGGER_RETENTION, LOGGER_ROTATION
 
 

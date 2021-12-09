@@ -5,6 +5,7 @@ env = Env()
 env.read_env()
 logger_path = os.path.dirname(__file__)
 
+
 """
 getter获取模块相关
 
@@ -22,7 +23,7 @@ TEST_TIMEOUT：请求超时时间
 TEST_ANONYMOUS：是否开启高匿代理筛选
 TEST_VALID_STATUS：成功响应码
 """
-TEST_URL = env.str('TEST_URL', 'http://www.baidu.com')
+TEST_URL = env.str('TEST_URL', 'http://3.cn/')
 TEST_BATCH = env.int('TEST_BATCH', 20)
 TEST_TIMEOUT = env.int('TEST_TIMEOUT', 15)
 TEST_ANONYMOUS = True
@@ -56,7 +57,7 @@ API_HOST：api地址
 API_PORT：api端口
 API_THREADED：是否开启flask多线程
 """
-API_HOST = '127.0.0.1'
+API_HOST = '0.0.0.0'
 API_PORT = 5000
 API_THREADED = True
 
@@ -73,8 +74,8 @@ GETTER_CYCLE：存储调度间隔时间
 TESTER_ENABLED = env.bool('TESTER_ENABLED', True)
 GETTER_ENABLED = env.bool('GETTER_ENABLED', True)
 SERVER_ENABLED = env.bool('SERVER_ENABLED', True)
-TESTER_CYCLE = env.int('TESTER_CYCLE', 20)
-GETTER_CYCLE = env.int('GETTER_CYCLE', 120)
+TESTER_CYCLE = env.int('TESTER_CYCLE', 30)
+GETTER_CYCLE = env.int('GETTER_CYCLE', 30)
 
 
 """

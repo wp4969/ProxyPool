@@ -1,17 +1,17 @@
 FROM python:3.7-alpine
 
-WORKDIR /
+WORKDIR /app
 
-COPY ../ProxyPool .
+COPY . .
 
 #替换阿里源
 RUN echo "http://mirrors.aliyun.com/alpine/latest-stable/main/" > /etc/apk/repositories && \
     echo "http://mirrors.aliyun.com/alpine/latest-stable/community/" >> /etc/apk/reposi tories
 
-#依赖包
-RUN apk add --no-cache python3 python3-dev gcc openssl-dev openssl  libc-dev linux-headers libffi-dev libxml2-dev libxml2 libxslt-dev openssh-client
+RUN apk add --no-cache libxml2-dev libxslt-dev gcc musl-dev && \
+pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple&& \
+apk del gcc musl-dev libxml2-dev
 
-RUN pip3 install --default-timeout=100 --no-cache-dir --upgrade pip Scrapy
+VOLUME ["/app/proxypool/crawlers/private"]
 
-#-r requirements.txt
-#ENTRYPOINT ["python"]
+CMD ["supervisord", "-c", "supervisord.conf"]

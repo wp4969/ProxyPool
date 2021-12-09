@@ -1,4 +1,4 @@
-from ProxyPool.crawlers.base import BaseCrawler
+from proxypool.crawlers.base import BaseCrawler
 
 MAX_PAGE = 4
 BASE_URL = 'http://www.taiyanghttp.com/free/page{page}/'

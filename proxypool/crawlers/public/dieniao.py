@@ -1,4 +1,4 @@
-from ProxyPool.crawlers.base import BaseCrawler
+from proxypool.crawlers.base import BaseCrawler
 
 MAX_PAGE = 6
 BASE_URL = 'https://www.dieniao.com/FreeProxy/{page}.html'

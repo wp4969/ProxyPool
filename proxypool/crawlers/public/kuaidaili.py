@@ -1,4 +1,4 @@
-from ProxyPool.crawlers.base import BaseCrawler
+from proxypool.crawlers.base import BaseCrawler
 
 PROXY_TYPE = ['inha', 'intr']
 MAX_PAGE = 10

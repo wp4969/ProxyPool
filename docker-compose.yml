@@ -1,14 +1,18 @@
 version: '3'
 services:
-  server:
-    build: ../ProxyPool
+  proxy_redis:
+    image: 'redis:alpine'
+    container_name: proxy_redis
+    ports:
+     - "6379:6379"
+  proxy_server:
+    build: .
+    image: 'my_proxypool'
     container_name: proxy_server
     ports:
      - "5000:5000"
-    links:
-     - proxy_redis
+     - "80:80"
+    restart: always
     environment:
-     DB_CONN: "redis://@proxy_redis:6379/0"
-  proxy_redis:
-    image: "redis"
-    container_name: proxy_redis
+     #REDIS_HOST: 'redis://@proxy_redis:6379/0'
+     REDIS_HOST: proxy_redis

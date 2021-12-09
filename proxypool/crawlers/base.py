@@ -3,7 +3,7 @@ from lxml import etree
 from retrying import retry
 import requests
 from loguru import logger
-from ProxyPool.utils.header import Header
+from proxypool.utils.header import Header
 
 
 class BaseCrawler(object):

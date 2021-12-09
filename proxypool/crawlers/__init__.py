@@ -1,6 +1,6 @@
 import pkgutil
 import inspect
-from ProxyPool.crawlers.base import BaseCrawler
+from proxypool.crawlers.base import BaseCrawler
 
 classes = []
 for loader, name, is_pkg in pkgutil.walk_packages(__path__):

@@ -1,5 +1,5 @@
 import time
-from ProxyPool.crawlers.base import BaseCrawler
+from proxypool.crawlers.base import BaseCrawler
 
 PROXY_TYPE = time.strftime("%Y/%m/%d/%H", time.localtime())
 BASE_URL = 'https://ip.ihuan.me/today/{}.html'
