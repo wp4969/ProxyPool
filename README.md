@@ -23,12 +23,11 @@ docker-compose up
 
 ## 可配置项
 
+```python
 ###getter获取模块相关
-
 PROXY_NUMBER_MAX：代理池最大数量
 
 ###tester测试模块相关
-
 TEST_URL：代理池URL
 TEST_BATCH：批量测试数量
 TEST_TIMEOUT：请求超时时间
@@ -36,7 +35,6 @@ TEST_ANONYMOUS：是否开启高匿代理筛选
 TEST_VALID_STATUS：成功响应码
 
 ###redis存储模块相关
-
 REDIS_HOST：redis连接的地址
 REDIS_PORT：redis连接的端口
 REDIS_DB：redis连接的db
@@ -46,13 +44,11 @@ MAX_SCORE：最大分数
 AMOUNT_SCORE：每次执行累加的值 -1为每次执行分数减1
 
 ###server接口模块相关
-
 API_HOST：api地址
 API_PORT：api端口
 API_THREADED：是否开启flask多线程
 
 ###scheduler调度模块相关
-
 TESTER_ENABLED：测试模块相关
 GETTER_ENABLED：存储模块相关
 SERVER_ENABLED：接口模块开关
@@ -60,13 +56,13 @@ TESTER_CYCLE：测试调度间隔时间
 GETTER_CYCLE：存储调度间隔时间
 
 ###日志相关
-
 LOGGER_ENABLED：是否开启日志记录
 LOGGER_FILE：日志文件目录
 LOGGER_LEVEL：日志记录级别
 LOGGER_FORMAT：日志记录格式
 LOGGER_ROTATION：日志文件分割规则 比如：'10 MB' or '00:00' or '1 week'
 LOGGER_RETENTION：日志最长保留时间
+```
 
 ## 扩展代理爬虫
 
