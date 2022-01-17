@@ -23,7 +23,7 @@ TEST_TIMEOUT：请求超时时间
 TEST_ANONYMOUS：是否开启高匿代理筛选
 TEST_VALID_STATUS：成功响应码
 """
-TEST_URL = env.str('TEST_URL', 'http://www.baidu.com')
+TEST_URL = env.str('TEST_URL', 'http://www.jd.com')
 TEST_BATCH = env.int('TEST_BATCH', 20)
 TEST_TIMEOUT = env.int('TEST_TIMEOUT', 15)
 TEST_ANONYMOUS = True
@@ -44,7 +44,7 @@ AMOUNT_SCORE：每次执行累加的值 -1为每次执行分数减1
 REDIS_HOST = env.str('REDIS_HOST', 'localhost')
 REDIS_PORT = env.int('REDIS_PORT', 6379)
 REDIS_DB = env.int('REDIS_DB', 0)
-REDIS_KEY = env.str('REDIS_KEY', 'proxy:baidu')
+REDIS_KEY = env.str('REDIS_KEY', 'proxy:jd')
 MIN_SCORE = 0
 MAX_SCORE = 100
 AMOUNT_SCORE = -1
@@ -72,7 +72,7 @@ TESTER_CYCLE：测试调度间隔时间
 GETTER_CYCLE：存储调度间隔时间
 """
 TESTER_ENABLED = env.bool('TESTER_ENABLED', True)
-GETTER_ENABLED = env.bool('GETTER_ENABLED', True)
+GETTER_ENABLED = env.bool('GETTER_ENABLED', False)
 SERVER_ENABLED = env.bool('SERVER_ENABLED', True)
 TESTER_CYCLE = env.int('TESTER_CYCLE', 30)
 GETTER_CYCLE = env.int('GETTER_CYCLE', 30)
