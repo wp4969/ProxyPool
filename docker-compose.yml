@@ -3,8 +3,9 @@ services:
   proxy_redis:
     image: 'redis:alpine'
     container_name: proxy_redis
+    command: redis-server --requirepass proxypool
     ports:
-     - "6379:6379"
+     - "4969:6379"
   proxy_server:
     build: .
     image: 'my_proxypool'
