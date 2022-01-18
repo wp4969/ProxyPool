@@ -1,7 +1,7 @@
 import redis
 import random
 from loguru import logger
-from proxypool.setting import REDIS_HOST, REDIS_PORT, REDIS_DB, REDIS_KEY, MIN_SCORE, MAX_SCORE, AMOUNT_SCORE, \
+from proxypool.setting import REDIS_HOST, REDIS_PORT, REDIS_DB, REDIS_KEY, REDIS_PASSWD, MIN_SCORE, MAX_SCORE, AMOUNT_SCORE, \
     LOGGER_ENABLED, LOGGER_FILE, LOGGER_LEVEL, LOGGER_FORMAT, LOGGER_RETENTION, LOGGER_ROTATION
 
 
@@ -10,7 +10,7 @@ class RedisClient:
     存储模块: 操作redis的所有方法
     """
     def __init__(self):
-        self.db = redis.StrictRedis(host=REDIS_HOST, port=REDIS_PORT, db=REDIS_DB, decode_responses=True)
+        self.db = redis.StrictRedis(host=REDIS_HOST, port=REDIS_PORT, db=REDIS_DB, password=REDIS_PASSWD, decode_responses=True)
         if LOGGER_ENABLED:
             logger.add(LOGGER_FILE, level=LOGGER_LEVEL, format=LOGGER_FORMAT, retention=LOGGER_RETENTION,
                        rotation=LOGGER_ROTATION)

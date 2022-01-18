@@ -45,6 +45,7 @@ REDIS_HOST = env.str('REDIS_HOST', 'localhost')
 REDIS_PORT = env.int('REDIS_PORT', 6379)
 REDIS_DB = env.int('REDIS_DB', 0)
 REDIS_KEY = env.str('REDIS_KEY', 'proxy:jd')
+REDIS_PASSWD = env.str('REDIS_PASSWD', 'proxypool')
 MIN_SCORE = 0
 MAX_SCORE = 100
 AMOUNT_SCORE = -1
