@@ -1,4 +1,4 @@
-from flask import Flask, g
+from flask import Flask, g, request
 from proxypool.components.redisclient import RedisClient
 from proxypool.setting import API_HOST, API_PORT, API_THREADED
 
@@ -41,9 +41,17 @@ def get_proxy_all():
 
 
 @app.route('/count', methods=['GET'])
-def elite_count():
+def get_count():
     redis = get_conn()
     return redis.counts()
+
+
+@app.route('/delete', methods=['GET'])
+def delete():
+    redis = get_conn()
+    proxy = request.args["proxy"]
+    redis.increment(proxy)
+    return ''
 
 
 if __name__ == '__main__':

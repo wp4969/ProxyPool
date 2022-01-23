@@ -23,8 +23,7 @@ class RedisClient:
         return self.db.zadd(REDIS_KEY, {proxy: MAX_SCORE})
 
     def increment(self, proxy):
-        self.db.zincrby(REDIS_KEY, AMOUNT_SCORE, proxy)
-        score = self.db.zscore(REDIS_KEY, proxy)
+        score = self.db.zincrby(REDIS_KEY, AMOUNT_SCORE, proxy)
         if score <= MIN_SCORE:
             self.db.zrem(REDIS_KEY, proxy)
 
@@ -61,6 +60,7 @@ class RedisClient:
         """
         cursor, proxies = self.db.zscan(REDIS_KEY, cursor, count=count)
         return cursor, proxies
+
 
 if __name__ == '__main__':
     a = RedisClient()

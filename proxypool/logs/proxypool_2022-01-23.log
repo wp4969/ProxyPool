@@ -1,0 +1,462 @@
+2022-01-23 15:27:57 - ERROR - getter.py - 35 - An error has been caught in function '<module>', process 'MainProcess' (13952), thread 'MainThread' (17176):
+Traceback (most recent call last):
+
+  File "D:\Apps\Python\miniconda3\envs\py37\lib\site-packages\redis\connection.py", line 559, in connect
+    sock = self._connect()
+           │    └ <function Connection._connect at 0x00000197C5FF0048>
+           └ Connection<host=localhost,port=6379,db=0>
+
+  File "D:\Apps\Python\miniconda3\envs\py37\lib\site-packages\redis\connection.py", line 615, in _connect
+    raise err
+          └ ConnectionRefusedError(10061, '由于目标计算机积极拒绝，无法连接。', None, 10061, None)
+
+  File "D:\Apps\Python\miniconda3\envs\py37\lib\site-packages\redis\connection.py", line 603, in _connect
+    sock.connect(socket_address)
+    │    │       └ ('127.0.0.1', 6379)
+    │    └ <method 'connect' of '_socket.socket' objects>
+    └ <socket.socket [closed] fd=-1, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0>
+
+ConnectionRefusedError: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+> File "D:/WorkSpace/pycharm-workspace/ProxyPool/proxypool/components/getter.py", line 35, in <module>
+    getter.run()
+    │      └ <function Getter.run at 0x00000197C61083A8>
+    └ <__main__.Getter object at 0x00000197C37AA448>
+
+  File "D:/WorkSpace/pycharm-workspace/ProxyPool/proxypool/components/getter.py", line 25, in run
+    if self.is_full():
+       │    └ <function Getter.is_full at 0x00000197C6108288>
+       └ <__main__.Getter object at 0x00000197C37AA448>
+
+  File "D:/WorkSpace/pycharm-workspace/ProxyPool/proxypool/components/getter.py", line 21, in is_full
+    return self.redis.count() >= PROXY_NUMBER_MAX
+           │    │     │          └ 50000
+           │    │     └ <function RedisClient.count at 0x00000197C6100DC8>
+           │    └ <proxypool.components.redisclient.RedisClient object at 0x00000197C60FE8C8>
+           └ <__main__.Getter object at 0x00000197C37AA448>
+
+  File "D:\WorkSpace\pycharm-workspace\ProxyPool\proxypool\components\redisclient.py", line 48, in count
+    return self.db.zcard(REDIS_KEY)
+           │    │  │     └ 'proxy:jd'
+           │    │  └ <function Redis.zcard at 0x00000197C600DD38>
+           │    └ Redis<ConnectionPool<Connection<host=localhost,port=6379,db=0>>>
+           └ <proxypool.components.redisclient.RedisClient object at 0x00000197C60FE8C8>
+
+  File "D:\Apps\Python\miniconda3\envs\py37\lib\site-packages\redis\client.py", line 2692, in zcard
+    return self.execute_command('ZCARD', name)
+           │    │                        └ 'proxy:jd'
+           │    └ <function Redis.execute_command at 0x00000197C6006D38>
+           └ Redis<ConnectionPool<Connection<host=localhost,port=6379,db=0>>>
+
+  File "D:\Apps\Python\miniconda3\envs\py37\lib\site-packages\redis\client.py", line 898, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+           │    │             │    │              │               └ {}
+           │    │             │    │              └ 'ZCARD'
+           │    │             │    └ <function ConnectionPool.get_connection at 0x00000197C5FF0D38>
+           │    │             └ ConnectionPool<Connection<host=localhost,port=6379,db=0>>
+           │    └ None
+           └ Redis<ConnectionPool<Connection<host=localhost,port=6379,db=0>>>
+
+  File "D:\Apps\Python\miniconda3\envs\py37\lib\site-packages\redis\connection.py", line 1192, in get_connection
+    connection.connect()
+    │          └ <function Connection.connect at 0x00000197C5FE9F78>
+    └ Connection<host=localhost,port=6379,db=0>
+
+  File "D:\Apps\Python\miniconda3\envs\py37\lib\site-packages\redis\connection.py", line 563, in connect
+    raise ConnectionError(self._error_message(e))
+          │               │    └ <function Connection._error_message at 0x00000197C5FF00D8>
+          │               └ Connection<host=localhost,port=6379,db=0>
+          └ <class 'redis.exceptions.ConnectionError'>
+
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. 由于目标计算机积极拒绝，无法连接。.
+2022-01-23 15:27:57 - ERROR - getter.py - 35 - An error has been caught in function '<module>', process 'MainProcess' (13952), thread 'MainThread' (17176):
+Traceback (most recent call last):
+
+  File "D:\Apps\Python\miniconda3\envs\py37\lib\site-packages\redis\connection.py", line 559, in connect
+    sock = self._connect()
+           │    └ <function Connection._connect at 0x00000197C5FF0048>
+           └ Connection<host=localhost,port=6379,db=0>
+
+  File "D:\Apps\Python\miniconda3\envs\py37\lib\site-packages\redis\connection.py", line 615, in _connect
+    raise err
+          └ ConnectionRefusedError(10061, '由于目标计算机积极拒绝，无法连接。', None, 10061, None)
+
+  File "D:\Apps\Python\miniconda3\envs\py37\lib\site-packages\redis\connection.py", line 603, in _connect
+    sock.connect(socket_address)
+    │    │       └ ('127.0.0.1', 6379)
+    │    └ <method 'connect' of '_socket.socket' objects>
+    └ <socket.socket [closed] fd=-1, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0>
+
+ConnectionRefusedError: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+> File "D:/WorkSpace/pycharm-workspace/ProxyPool/proxypool/components/getter.py", line 35, in <module>
+    getter.run()
+    │      └ <function Getter.run at 0x00000197C61083A8>
+    └ <__main__.Getter object at 0x00000197C37AA448>
+
+  File "D:/WorkSpace/pycharm-workspace/ProxyPool/proxypool/components/getter.py", line 25, in run
+    if self.is_full():
+       │    └ <function Getter.is_full at 0x00000197C6108288>
+       └ <__main__.Getter object at 0x00000197C37AA448>
+
+  File "D:/WorkSpace/pycharm-workspace/ProxyPool/proxypool/components/getter.py", line 21, in is_full
+    return self.redis.count() >= PROXY_NUMBER_MAX
+           │    │     │          └ 50000
+           │    │     └ <function RedisClient.count at 0x00000197C6100DC8>
+           │    └ <proxypool.components.redisclient.RedisClient object at 0x00000197C60FE8C8>
+           └ <__main__.Getter object at 0x00000197C37AA448>
+
+  File "D:\WorkSpace\pycharm-workspace\ProxyPool\proxypool\components\redisclient.py", line 48, in count
+    return self.db.zcard(REDIS_KEY)
+           │    │  │     └ 'proxy:jd'
+           │    │  └ <function Redis.zcard at 0x00000197C600DD38>
+           │    └ Redis<ConnectionPool<Connection<host=localhost,port=6379,db=0>>>
+           └ <proxypool.components.redisclient.RedisClient object at 0x00000197C60FE8C8>
+
+  File "D:\Apps\Python\miniconda3\envs\py37\lib\site-packages\redis\client.py", line 2692, in zcard
+    return self.execute_command('ZCARD', name)
+           │    │                        └ 'proxy:jd'
+           │    └ <function Redis.execute_command at 0x00000197C6006D38>
+           └ Redis<ConnectionPool<Connection<host=localhost,port=6379,db=0>>>
+
+  File "D:\Apps\Python\miniconda3\envs\py37\lib\site-packages\redis\client.py", line 898, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+           │    │             │    │              │               └ {}
+           │    │             │    │              └ 'ZCARD'
+           │    │             │    └ <function ConnectionPool.get_connection at 0x00000197C5FF0D38>
+           │    │             └ ConnectionPool<Connection<host=localhost,port=6379,db=0>>
+           │    └ None
+           └ Redis<ConnectionPool<Connection<host=localhost,port=6379,db=0>>>
+
+  File "D:\Apps\Python\miniconda3\envs\py37\lib\site-packages\redis\connection.py", line 1192, in get_connection
+    connection.connect()
+    │          └ <function Connection.connect at 0x00000197C5FE9F78>
+    └ Connection<host=localhost,port=6379,db=0>
+
+  File "D:\Apps\Python\miniconda3\envs\py37\lib\site-packages\redis\connection.py", line 563, in connect
+    raise ConnectionError(self._error_message(e))
+          │               │    └ <function Connection._error_message at 0x00000197C5FF00D8>
+          │               └ Connection<host=localhost,port=6379,db=0>
+          └ <class 'redis.exceptions.ConnectionError'>
+
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. 由于目标计算机积极拒绝，无法连接。.
+2022-01-23 15:29:49 - ERROR - getter.py - 35 - An error has been caught in function '<module>', process 'MainProcess' (14192), thread 'MainThread' (2592):
+Traceback (most recent call last):
+
+  File "D:\Apps\Python\miniconda3\envs\py37\lib\site-packages\redis\connection.py", line 559, in connect
+    sock = self._connect()
+           │    └ <function Connection._connect at 0x000001D8A874F048>
+           └ Connection<host=localhost,port=6379,db=0>
+
+  File "D:\Apps\Python\miniconda3\envs\py37\lib\site-packages\redis\connection.py", line 615, in _connect
+    raise err
+          └ ConnectionRefusedError(10061, '由于目标计算机积极拒绝，无法连接。', None, 10061, None)
+
+  File "D:\Apps\Python\miniconda3\envs\py37\lib\site-packages\redis\connection.py", line 603, in _connect
+    sock.connect(socket_address)
+    │    │       └ ('127.0.0.1', 6379)
+    │    └ <method 'connect' of '_socket.socket' objects>
+    └ <socket.socket [closed] fd=-1, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0>
+
+ConnectionRefusedError: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+> File "D:/WorkSpace/pycharm-workspace/ProxyPool/proxypool/components/getter.py", line 35, in <module>
+    getter.run()
+    │      └ <function Getter.run at 0x000001D8A88683A8>
+    └ <__main__.Getter object at 0x000001D8A5EEA3C8>
+
+  File "D:/WorkSpace/pycharm-workspace/ProxyPool/proxypool/components/getter.py", line 25, in run
+    if self.is_full():
+       │    └ <function Getter.is_full at 0x000001D8A8868288>
+       └ <__main__.Getter object at 0x000001D8A5EEA3C8>
+
+  File "D:/WorkSpace/pycharm-workspace/ProxyPool/proxypool/components/getter.py", line 21, in is_full
+    return self.redis.count() >= PROXY_NUMBER_MAX
+           │    │     │          └ 50000
+           │    │     └ <function RedisClient.count at 0x000001D8A885EDC8>
+           │    └ <proxypool.components.redisclient.RedisClient object at 0x000001D8A5EEAF08>
+           └ <__main__.Getter object at 0x000001D8A5EEA3C8>
+
+  File "D:\WorkSpace\pycharm-workspace\ProxyPool\proxypool\components\redisclient.py", line 48, in count
+    return self.db.zcard(REDIS_KEY)
+           │    │  │     └ 'proxy:jd'
+           │    │  └ <function Redis.zcard at 0x000001D8A876CD38>
+           │    └ Redis<ConnectionPool<Connection<host=localhost,port=6379,db=0>>>
+           └ <proxypool.components.redisclient.RedisClient object at 0x000001D8A5EEAF08>
+
+  File "D:\Apps\Python\miniconda3\envs\py37\lib\site-packages\redis\client.py", line 2692, in zcard
+    return self.execute_command('ZCARD', name)
+           │    │                        └ 'proxy:jd'
+           │    └ <function Redis.execute_command at 0x000001D8A8766D38>
+           └ Redis<ConnectionPool<Connection<host=localhost,port=6379,db=0>>>
+
+  File "D:\Apps\Python\miniconda3\envs\py37\lib\site-packages\redis\client.py", line 898, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+           │    │             │    │              │               └ {}
+           │    │             │    │              └ 'ZCARD'
+           │    │             │    └ <function ConnectionPool.get_connection at 0x000001D8A874FD38>
+           │    │             └ ConnectionPool<Connection<host=localhost,port=6379,db=0>>
+           │    └ None
+           └ Redis<ConnectionPool<Connection<host=localhost,port=6379,db=0>>>
+
+  File "D:\Apps\Python\miniconda3\envs\py37\lib\site-packages\redis\connection.py", line 1192, in get_connection
+    connection.connect()
+    │          └ <function Connection.connect at 0x000001D8A8748F78>
+    └ Connection<host=localhost,port=6379,db=0>
+
+  File "D:\Apps\Python\miniconda3\envs\py37\lib\site-packages\redis\connection.py", line 563, in connect
+    raise ConnectionError(self._error_message(e))
+          │               │    └ <function Connection._error_message at 0x000001D8A874F0D8>
+          │               └ Connection<host=localhost,port=6379,db=0>
+          └ <class 'redis.exceptions.ConnectionError'>
+
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. 由于目标计算机积极拒绝，无法连接。.
+2022-01-23 15:29:49 - ERROR - getter.py - 35 - An error has been caught in function '<module>', process 'MainProcess' (14192), thread 'MainThread' (2592):
+Traceback (most recent call last):
+
+  File "D:\Apps\Python\miniconda3\envs\py37\lib\site-packages\redis\connection.py", line 559, in connect
+    sock = self._connect()
+           │    └ <function Connection._connect at 0x000001D8A874F048>
+           └ Connection<host=localhost,port=6379,db=0>
+
+  File "D:\Apps\Python\miniconda3\envs\py37\lib\site-packages\redis\connection.py", line 615, in _connect
+    raise err
+          └ ConnectionRefusedError(10061, '由于目标计算机积极拒绝，无法连接。', None, 10061, None)
+
+  File "D:\Apps\Python\miniconda3\envs\py37\lib\site-packages\redis\connection.py", line 603, in _connect
+    sock.connect(socket_address)
+    │    │       └ ('127.0.0.1', 6379)
+    │    └ <method 'connect' of '_socket.socket' objects>
+    └ <socket.socket [closed] fd=-1, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0>
+
+ConnectionRefusedError: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+> File "D:/WorkSpace/pycharm-workspace/ProxyPool/proxypool/components/getter.py", line 35, in <module>
+    getter.run()
+    │      └ <function Getter.run at 0x000001D8A88683A8>
+    └ <__main__.Getter object at 0x000001D8A5EEA3C8>
+
+  File "D:/WorkSpace/pycharm-workspace/ProxyPool/proxypool/components/getter.py", line 25, in run
+    if self.is_full():
+       │    └ <function Getter.is_full at 0x000001D8A8868288>
+       └ <__main__.Getter object at 0x000001D8A5EEA3C8>
+
+  File "D:/WorkSpace/pycharm-workspace/ProxyPool/proxypool/components/getter.py", line 21, in is_full
+    return self.redis.count() >= PROXY_NUMBER_MAX
+           │    │     │          └ 50000
+           │    │     └ <function RedisClient.count at 0x000001D8A885EDC8>
+           │    └ <proxypool.components.redisclient.RedisClient object at 0x000001D8A5EEAF08>
+           └ <__main__.Getter object at 0x000001D8A5EEA3C8>
+
+  File "D:\WorkSpace\pycharm-workspace\ProxyPool\proxypool\components\redisclient.py", line 48, in count
+    return self.db.zcard(REDIS_KEY)
+           │    │  │     └ 'proxy:jd'
+           │    │  └ <function Redis.zcard at 0x000001D8A876CD38>
+           │    └ Redis<ConnectionPool<Connection<host=localhost,port=6379,db=0>>>
+           └ <proxypool.components.redisclient.RedisClient object at 0x000001D8A5EEAF08>
+
+  File "D:\Apps\Python\miniconda3\envs\py37\lib\site-packages\redis\client.py", line 2692, in zcard
+    return self.execute_command('ZCARD', name)
+           │    │                        └ 'proxy:jd'
+           │    └ <function Redis.execute_command at 0x000001D8A8766D38>
+           └ Redis<ConnectionPool<Connection<host=localhost,port=6379,db=0>>>
+
+  File "D:\Apps\Python\miniconda3\envs\py37\lib\site-packages\redis\client.py", line 898, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+           │    │             │    │              │               └ {}
+           │    │             │    │              └ 'ZCARD'
+           │    │             │    └ <function ConnectionPool.get_connection at 0x000001D8A874FD38>
+           │    │             └ ConnectionPool<Connection<host=localhost,port=6379,db=0>>
+           │    └ None
+           └ Redis<ConnectionPool<Connection<host=localhost,port=6379,db=0>>>
+
+  File "D:\Apps\Python\miniconda3\envs\py37\lib\site-packages\redis\connection.py", line 1192, in get_connection
+    connection.connect()
+    │          └ <function Connection.connect at 0x000001D8A8748F78>
+    └ Connection<host=localhost,port=6379,db=0>
+
+  File "D:\Apps\Python\miniconda3\envs\py37\lib\site-packages\redis\connection.py", line 563, in connect
+    raise ConnectionError(self._error_message(e))
+          │               │    └ <function Connection._error_message at 0x000001D8A874F0D8>
+          │               └ Connection<host=localhost,port=6379,db=0>
+          └ <class 'redis.exceptions.ConnectionError'>
+
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. 由于目标计算机积极拒绝，无法连接。.
+2022-01-23 15:32:10 - ERROR - getter.py - 35 - An error has been caught in function '<module>', process 'MainProcess' (624), thread 'MainThread' (15160):
+Traceback (most recent call last):
+
+  File "D:\Apps\Python\miniconda3\envs\py37\lib\site-packages\redis\connection.py", line 559, in connect
+    sock = self._connect()
+           │    └ <function Connection._connect at 0x000001E530F1F048>
+           └ Connection<host=localhost,port=6379,db=0>
+
+  File "D:\Apps\Python\miniconda3\envs\py37\lib\site-packages\redis\connection.py", line 615, in _connect
+    raise err
+          └ ConnectionRefusedError(10061, '由于目标计算机积极拒绝，无法连接。', None, 10061, None)
+
+  File "D:\Apps\Python\miniconda3\envs\py37\lib\site-packages\redis\connection.py", line 603, in _connect
+    sock.connect(socket_address)
+    │    │       └ ('127.0.0.1', 6379)
+    │    └ <method 'connect' of '_socket.socket' objects>
+    └ <socket.socket [closed] fd=-1, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0>
+
+ConnectionRefusedError: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+> File "D:/WorkSpace/pycharm-workspace/ProxyPool/proxypool/components/getter.py", line 35, in <module>
+    getter.run()
+    │      └ <function Getter.run at 0x000001E5310383A8>
+    └ <__main__.Getter object at 0x000001E52E6BA408>
+
+  File "D:/WorkSpace/pycharm-workspace/ProxyPool/proxypool/components/getter.py", line 25, in run
+    if self.is_full():
+       │    └ <function Getter.is_full at 0x000001E531038288>
+       └ <__main__.Getter object at 0x000001E52E6BA408>
+
+  File "D:/WorkSpace/pycharm-workspace/ProxyPool/proxypool/components/getter.py", line 21, in is_full
+    return self.redis.count() >= PROXY_NUMBER_MAX
+           │    │     │          └ 50000
+           │    │     └ <function RedisClient.count at 0x000001E53102FDC8>
+           │    └ <proxypool.components.redisclient.RedisClient object at 0x000001E53102D988>
+           └ <__main__.Getter object at 0x000001E52E6BA408>
+
+  File "D:\WorkSpace\pycharm-workspace\ProxyPool\proxypool\components\redisclient.py", line 48, in count
+    return self.db.zcard(REDIS_KEY)
+           │    │  │     └ 'proxy:jd'
+           │    │  └ <function Redis.zcard at 0x000001E530F3CD38>
+           │    └ Redis<ConnectionPool<Connection<host=localhost,port=6379,db=0>>>
+           └ <proxypool.components.redisclient.RedisClient object at 0x000001E53102D988>
+
+  File "D:\Apps\Python\miniconda3\envs\py37\lib\site-packages\redis\client.py", line 2692, in zcard
+    return self.execute_command('ZCARD', name)
+           │    │                        └ 'proxy:jd'
+           │    └ <function Redis.execute_command at 0x000001E530F36D38>
+           └ Redis<ConnectionPool<Connection<host=localhost,port=6379,db=0>>>
+
+  File "D:\Apps\Python\miniconda3\envs\py37\lib\site-packages\redis\client.py", line 898, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+           │    │             │    │              │               └ {}
+           │    │             │    │              └ 'ZCARD'
+           │    │             │    └ <function ConnectionPool.get_connection at 0x000001E530F1FD38>
+           │    │             └ ConnectionPool<Connection<host=localhost,port=6379,db=0>>
+           │    └ None
+           └ Redis<ConnectionPool<Connection<host=localhost,port=6379,db=0>>>
+
+  File "D:\Apps\Python\miniconda3\envs\py37\lib\site-packages\redis\connection.py", line 1192, in get_connection
+    connection.connect()
+    │          └ <function Connection.connect at 0x000001E530F18F78>
+    └ Connection<host=localhost,port=6379,db=0>
+
+  File "D:\Apps\Python\miniconda3\envs\py37\lib\site-packages\redis\connection.py", line 563, in connect
+    raise ConnectionError(self._error_message(e))
+          │               │    └ <function Connection._error_message at 0x000001E530F1F0D8>
+          │               └ Connection<host=localhost,port=6379,db=0>
+          └ <class 'redis.exceptions.ConnectionError'>
+
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. 由于目标计算机积极拒绝，无法连接。.
+2022-01-23 15:32:10 - ERROR - getter.py - 35 - An error has been caught in function '<module>', process 'MainProcess' (624), thread 'MainThread' (15160):
+Traceback (most recent call last):
+
+  File "D:\Apps\Python\miniconda3\envs\py37\lib\site-packages\redis\connection.py", line 559, in connect
+    sock = self._connect()
+           │    └ <function Connection._connect at 0x000001E530F1F048>
+           └ Connection<host=localhost,port=6379,db=0>
+
+  File "D:\Apps\Python\miniconda3\envs\py37\lib\site-packages\redis\connection.py", line 615, in _connect
+    raise err
+          └ ConnectionRefusedError(10061, '由于目标计算机积极拒绝，无法连接。', None, 10061, None)
+
+  File "D:\Apps\Python\miniconda3\envs\py37\lib\site-packages\redis\connection.py", line 603, in _connect
+    sock.connect(socket_address)
+    │    │       └ ('127.0.0.1', 6379)
+    │    └ <method 'connect' of '_socket.socket' objects>
+    └ <socket.socket [closed] fd=-1, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0>
+
+ConnectionRefusedError: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+> File "D:/WorkSpace/pycharm-workspace/ProxyPool/proxypool/components/getter.py", line 35, in <module>
+    getter.run()
+    │      └ <function Getter.run at 0x000001E5310383A8>
+    └ <__main__.Getter object at 0x000001E52E6BA408>
+
+  File "D:/WorkSpace/pycharm-workspace/ProxyPool/proxypool/components/getter.py", line 25, in run
+    if self.is_full():
+       │    └ <function Getter.is_full at 0x000001E531038288>
+       └ <__main__.Getter object at 0x000001E52E6BA408>
+
+  File "D:/WorkSpace/pycharm-workspace/ProxyPool/proxypool/components/getter.py", line 21, in is_full
+    return self.redis.count() >= PROXY_NUMBER_MAX
+           │    │     │          └ 50000
+           │    │     └ <function RedisClient.count at 0x000001E53102FDC8>
+           │    └ <proxypool.components.redisclient.RedisClient object at 0x000001E53102D988>
+           └ <__main__.Getter object at 0x000001E52E6BA408>
+
+  File "D:\WorkSpace\pycharm-workspace\ProxyPool\proxypool\components\redisclient.py", line 48, in count
+    return self.db.zcard(REDIS_KEY)
+           │    │  │     └ 'proxy:jd'
+           │    │  └ <function Redis.zcard at 0x000001E530F3CD38>
+           │    └ Redis<ConnectionPool<Connection<host=localhost,port=6379,db=0>>>
+           └ <proxypool.components.redisclient.RedisClient object at 0x000001E53102D988>
+
+  File "D:\Apps\Python\miniconda3\envs\py37\lib\site-packages\redis\client.py", line 2692, in zcard
+    return self.execute_command('ZCARD', name)
+           │    │                        └ 'proxy:jd'
+           │    └ <function Redis.execute_command at 0x000001E530F36D38>
+           └ Redis<ConnectionPool<Connection<host=localhost,port=6379,db=0>>>
+
+  File "D:\Apps\Python\miniconda3\envs\py37\lib\site-packages\redis\client.py", line 898, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+           │    │             │    │              │               └ {}
+           │    │             │    │              └ 'ZCARD'
+           │    │             │    └ <function ConnectionPool.get_connection at 0x000001E530F1FD38>
+           │    │             └ ConnectionPool<Connection<host=localhost,port=6379,db=0>>
+           │    └ None
+           └ Redis<ConnectionPool<Connection<host=localhost,port=6379,db=0>>>
+
+  File "D:\Apps\Python\miniconda3\envs\py37\lib\site-packages\redis\connection.py", line 1192, in get_connection
+    connection.connect()
+    │          └ <function Connection.connect at 0x000001E530F18F78>
+    └ Connection<host=localhost,port=6379,db=0>
+
+  File "D:\Apps\Python\miniconda3\envs\py37\lib\site-packages\redis\connection.py", line 563, in connect
+    raise ConnectionError(self._error_message(e))
+          │               │    └ <function Connection._error_message at 0x000001E530F1F0D8>
+          │               └ Connection<host=localhost,port=6379,db=0>
+          └ <class 'redis.exceptions.ConnectionError'>
+
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. 由于目标计算机积极拒绝，无法连接。.
